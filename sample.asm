@@ -56,196 +56,269 @@ section .data
   _z db 09h ;实际还可以把这两个存入z，之之所以times后面不能再单独定义数据也是因为没必要
   end db 0ah ;回车键
   exp dd 0 ;暂存exp的值
-  Variable5 dd 0
-  Variable2 dd 0
-  Variable0 dd 0
-  Variable3 dd 0
-  Variable4 dd 0
   Variable1 dd 0
+  Variable0 dd 0
+  Variable4 dd 0
+  Variable3 dd 0
+  Variable2 dd 0
 section .text
 global _start
 _start:
 Address0:
   call In
-  mov [Variable-1],eax
+  mov [Variable1],eax
 Address1:
-  call In
-  mov [Variable-1],eax
+  push eax
+  push ebx
+  push ecx
+  push edx
 Address2:
-  call In
-  mov [Variable-1],eax
+  push eax
+  push ebx
+  push ecx
+  push edx
 Address3:
-  call In
-  mov [Variable-1],eax
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address4:
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address5:
+  push eax
+  push ebx
+  push ecx
+  push edx
 Address6:
-  mov eax,[Variable-1]
+  push eax
+  push ebx
+  push ecx
+  push edx
 Address7:
-  mov ebx,eax
+  push eax
+  push ebx
+  push ecx
+  push edx
 Address8:
-  mov ecx,ebx
+  push eax
+  push ebx
+  push ecx
+  push edx
 Address9:
-  mov edx,ecx
+  push eax
+  push ebx
+  push ecx
+  push edx
 Address10:
-  push eax
-  push ebx
-  push ecx
-  push edx
+  mov eax,1
 Address11:
-  mov eax,0
+  mov [exp],eax
 Address12:
-  mov [exp],eax
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
 Address13:
-  pop edx
-  pop ecx
-  pop ebx
-  pop eax
+  mov eax,[exp]
 Address14:
-  Compute 5,edx,[exp]
+  mov [exp],eax
 Address15:
-  cmp edx,0
-  jz Address4
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address16:
+  mov eax,[exp]
+Address17:
+  mov [exp],eax
 Address18:
-  mov eax,[Variable-1]
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
 Address19:
-  mov ebx,eax
+  mov eax,[exp]
 Address20:
-  mov ecx,ebx
+  mov [exp],eax
 Address21:
-  mov edx,ecx
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
 Address22:
-  push eax
-  push ebx
-  push ecx
-  push edx
+  mov eax,[exp]
 Address23:
-  mov eax,0
-Address24:
   mov [exp],eax
-Address25:
+Address24:
   pop edx
   pop ecx
   pop ebx
   pop eax
+Address25:
+  mov eax,[exp]
 Address26:
-  Compute 5,edx,[exp]
+  mov [exp],eax
 Address27:
-  cmp edx,0
-  jz Address16
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address28:
+  mov eax,[exp]
+Address29:
+  mov [exp],eax
 Address30:
-  mov eax,[Variable-1]
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
 Address31:
-  mov ebx,eax
+  mov eax,[exp]
 Address32:
-  mov ecx,ebx
+  mov [exp],eax
 Address33:
-  mov edx,ecx
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
 Address34:
+  mov eax,[exp]
+Address35:
+  mov [exp],eax
+Address36:
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address37:
+  mov eax,[exp]
+Address38:
+  mov ebx,eax
+Address39:
+  mov ecx,ebx
+Address40:
   push eax
   push ebx
   push ecx
   push edx
-Address35:
-  mov eax,0
-Address36:
-  mov [exp],eax
-Address37:
-  pop edx
-  pop ecx
-  pop ebx
-  pop eax
-Address38:
-  Compute 5,edx,[exp]
-Address39:
-  cmp edx,0
-  jz Address28
+Address41:
+  push eax
+  push ebx
+  push ecx
+  push edx
 Address42:
-  mov eax,[Variable-1]
+  mov eax,1
 Address43:
   mov ebx,eax
 Address44:
   mov ecx,ebx
 Address45:
-  mov edx,ecx
+  push eax
+  push ebx
+  push ecx
+  push edx
 Address46:
   push eax
   push ebx
   push ecx
   push edx
 Address47:
-  mov eax,0
+  mov eax,1
 Address48:
-  mov [exp],eax
+  mov ebx,eax
 Address49:
+  mov ecx,ebx
+Address50:
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address51:
+  mov eax,1
+Address52:
+  mov ebx,eax
+Address53:
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address54:
+  mov eax,1
+Address55:
+  mov ebx,eax
+Address56:
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address57:
+  mov eax,1
+Address58:
+  mov ebx,eax
+Address59:
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address60:
+  mov eax,1
+Address61:
+  mov [exp],eax
+Address62:
   pop edx
   pop ecx
   pop ebx
   pop eax
-Address50:
-  Compute 5,edx,[exp]
-Address51:
-  cmp edx,0
-  jz Address40
-Address52:
-  mov eax,0
-Address53:
-  call Out
-Address54:
-  jmp Address40
-Address40:
-  push edx
-Address55:
-  jmp Address41
-Address41:
-  nop
-Address58:
-  pop eax
-Address59:
-  cmp eax,0
-  jz Address56
-Address60:
-  jmp Address57
-Address56:
-  nop
-Address61:
-  mov eax,1
-Address62:
-  call Out
-Address57:
-  jmp Address63
 Address63:
-  nop
+  Compute 3,ebx,[exp]
 Address64:
-  jmp Address28
-Address28:
-  push edx
+  mov [exp],ebx
 Address65:
-  jmp Address29
-Address29:
-  nop
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address66:
+  Compute 2,ebx,[exp]
+Address67:
+  mov [exp],ebx
 Address68:
+  pop edx
+  pop ecx
+  pop ebx
   pop eax
 Address69:
-  cmp eax,0
-  jz Address66
+  Compute 2,ebx,[exp]
 Address70:
-  jmp Address67
-Address66:
-  nop
-Address73:
-  mov eax,[Variable-1]
-Address74:
-  mov ebx,eax
-Address75:
   mov ecx,ebx
+Address71:
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address72:
+  mov eax,1
+Address73:
+  mov ebx,eax
+Address74:
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address75:
+  mov eax,1
 Address76:
-  mov edx,ecx
+  mov ebx,eax
 Address77:
   push eax
   push ebx
   push ecx
   push edx
 Address78:
-  mov eax,0
+  mov eax,1
 Address79:
   mov [exp],eax
 Address80:
@@ -254,612 +327,986 @@ Address80:
   pop ebx
   pop eax
 Address81:
-  Compute 5,edx,[exp]
+  Compute 3,ebx,[exp]
 Address82:
-  cmp edx,0
-  jz Address71
+  mov [exp],ebx
 Address83:
-  mov eax,2
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
 Address84:
-  call Out
+  Compute 3,ebx,[exp]
 Address85:
-  jmp Address71
-Address71:
-  push edx
+  mov [exp],ebx
 Address86:
-  jmp Address72
-Address72:
-  nop
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address87:
+  Compute 1,ecx,[exp]
+Address88:
+  mov [exp],ecx
 Address89:
+  pop edx
+  pop ecx
+  pop ebx
   pop eax
 Address90:
-  cmp eax,0
-  jz Address87
+  Compute 0,ecx,[exp]
 Address91:
-  jmp Address88
-Address87:
-  nop
+  mov [exp],ecx
 Address92:
-  mov eax,3
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
 Address93:
-  call Out
-Address88:
-  jmp Address94
+  mov eax,[exp]
 Address94:
-  nop
-Address67:
-  jmp Address95
+  mov ebx,eax
 Address95:
-  nop
+  push eax
+  push ebx
+  push ecx
+  push edx
 Address96:
-  jmp Address16
-Address16:
+  push eax
+  push ebx
+  push ecx
   push edx
 Address97:
-  jmp Address17
-Address17:
-  nop
-Address100:
-  pop eax
-Address101:
-  cmp eax,0
-  jz Address98
-Address102:
-  jmp Address99
+  push eax
+  push ebx
+  push ecx
+  push edx
 Address98:
-  nop
-Address105:
-  mov eax,[Variable-1]
-Address106:
-  mov ebx,eax
-Address107:
-  mov ecx,ebx
-Address108:
-  mov edx,ecx
-Address109:
   push eax
   push ebx
   push ecx
   push edx
-Address110:
+Address99:
   mov eax,0
-Address111:
+Address100:
   mov [exp],eax
-Address112:
+Address101:
   pop edx
   pop ecx
   pop ebx
   pop eax
-Address113:
-  Compute 5,edx,[exp]
-Address114:
-  cmp edx,0
-  jz Address103
-Address117:
-  mov eax,[Variable-1]
-Address118:
-  mov ebx,eax
-Address119:
-  mov ecx,ebx
-Address120:
-  mov edx,ecx
-Address121:
-  push eax
-  push ebx
-  push ecx
-  push edx
-Address122:
-  mov eax,0
-Address123:
-  mov [exp],eax
-Address124:
-  pop edx
-  pop ecx
-  pop ebx
-  pop eax
-Address125:
-  Compute 5,edx,[exp]
-Address126:
-  cmp edx,0
-  jz Address115
-Address127:
-  mov eax,4
-Address128:
-  call Out
-Address129:
-  jmp Address115
-Address115:
-  push edx
-Address130:
-  jmp Address116
-Address116:
-  nop
-Address133:
-  pop eax
-Address134:
-  cmp eax,0
-  jz Address131
-Address135:
-  jmp Address132
-Address131:
-  nop
-Address136:
-  mov eax,5
-Address137:
-  call Out
-Address132:
-  jmp Address138
-Address138:
-  nop
-Address139:
-  jmp Address103
+Address102:
+  mov eax,[exp]
 Address103:
-  push edx
-Address140:
-  jmp Address104
+  mov ebx,eax
 Address104:
-  nop
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address105:
+  mov eax,1
+Address106:
+  mov [exp],eax
+Address107:
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address108:
+  Compute 2,ebx,[exp]
+Address109:
+  mov [exp],ebx
+Address110:
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address111:
+  mov eax,[exp]
+Address112:
+  mov ebx,eax
+Address113:
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address114:
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address115:
+  mov eax,0
+Address116:
+  mov ebx,eax
+Address117:
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address118:
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address119:
+  mov eax,1
+Address120:
+  mov ebx,eax
+Address121:
+  mov ecx,ebx
+Address122:
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address123:
+  mov eax,1
+Address124:
+  mov [exp],eax
+Address125:
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address126:
+  Compute 0,ecx,[exp]
+Address127:
+  mov [exp],ecx
+Address128:
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address129:
+  mov eax,[exp]
+Address130:
+  mov [exp],eax
+Address131:
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address132:
+  Compute 2,ebx,[exp]
+Address133:
+  mov [exp],ebx
+Address134:
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address135:
+  mov eax,[exp]
+Address136:
+  mov [exp],eax
+Address137:
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address138:
+  Compute 2,ebx,[exp]
+Address139:
+  mov ecx,ebx
+Address140:
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address141:
+  mov eax,1
+Address142:
+  mov [exp],eax
 Address143:
+  pop edx
+  pop ecx
+  pop ebx
   pop eax
 Address144:
-  cmp eax,0
-  jz Address141
+  Compute 0,ecx,[exp]
 Address145:
-  jmp Address142
-Address141:
-  nop
+  mov [exp],ecx
+Address146:
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address147:
+  mov eax,[exp]
 Address148:
-  mov eax,[Variable-1]
+  mov [exp],eax
 Address149:
-  mov ebx,eax
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
 Address150:
-  mov ecx,ebx
+  Compute 2,ebx,[exp]
 Address151:
-  mov edx,ecx
+  mov ecx,ebx
 Address152:
   push eax
   push ebx
   push ecx
   push edx
 Address153:
-  mov eax,0
+  mov eax,1
 Address154:
-  mov [exp],eax
+  mov ebx,eax
 Address155:
+  mov ecx,ebx
+Address156:
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address157:
+  mov eax,1
+Address158:
+  mov [exp],eax
+Address159:
   pop edx
   pop ecx
   pop ebx
   pop eax
-Address156:
-  Compute 5,edx,[exp]
-Address157:
-  cmp edx,0
-  jz Address146
-Address158:
-  mov eax,6
-Address159:
-  call Out
 Address160:
-  jmp Address146
-Address146:
-  push edx
+  Compute 1,ecx,[exp]
 Address161:
-  jmp Address147
-Address147:
-  nop
-Address164:
-  pop eax
-Address165:
-  cmp eax,0
-  jz Address162
-Address166:
-  jmp Address163
+  mov [exp],ecx
 Address162:
-  nop
-Address167:
-  mov eax,7
-Address168:
-  call Out
-Address163:
-  jmp Address169
-Address169:
-  nop
-Address142:
-  jmp Address170
-Address170:
-  nop
-Address99:
-  jmp Address171
-Address171:
-  nop
-Address172:
-  jmp Address4
-Address4:
-  push edx
-Address173:
-  jmp Address5
-Address5:
-  nop
-Address176:
+  pop edx
+  pop ecx
+  pop ebx
   pop eax
-Address177:
-  cmp eax,0
-  jz Address174
-Address178:
-  jmp Address175
+Address163:
+  Compute 0,ecx,[exp]
+Address164:
+  mov [exp],ecx
+Address165:
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address166:
+  Compute 0,ecx,[exp]
+Address167:
+  mov [exp],ecx
+Address168:
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address169:
+  mov eax,[exp]
+Address170:
+  mov ebx,eax
+Address171:
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address172:
+  mov eax,1
+Address173:
+  mov ebx,eax
 Address174:
-  nop
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address175:
+  mov eax,1
+Address176:
+  mov ebx,eax
+Address177:
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address178:
+  mov eax,1
+Address179:
+  mov ebx,eax
+Address180:
+  push eax
+  push ebx
+  push ecx
+  push edx
 Address181:
-  mov eax,[Variable-1]
+  mov eax,1
 Address182:
   mov ebx,eax
 Address183:
-  mov ecx,ebx
+  push eax
+  push ebx
+  push ecx
+  push edx
 Address184:
-  mov edx,ecx
+  mov eax,1
 Address185:
-  push eax
-  push ebx
-  push ecx
-  push edx
+  mov [exp],eax
 Address186:
-  mov eax,0
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
 Address187:
-  mov [exp],eax
+  Compute 3,ebx,[exp]
 Address188:
-  pop edx
-  pop ecx
-  pop ebx
-  pop eax
+  mov [exp],ebx
 Address189:
-  Compute 5,edx,[exp]
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
 Address190:
-  cmp edx,0
-  jz Address179
+  Compute 3,ebx,[exp]
+Address191:
+  mov [exp],ebx
+Address192:
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
 Address193:
-  mov eax,[Variable-1]
+  Compute 3,ebx,[exp]
 Address194:
-  mov ebx,eax
+  mov [exp],ebx
 Address195:
-  mov ecx,ebx
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
 Address196:
-  mov edx,ecx
+  Compute 3,ebx,[exp]
 Address197:
-  push eax
-  push ebx
-  push ecx
-  push edx
+  mov [exp],ebx
 Address198:
-  mov eax,0
-Address199:
-  mov [exp],eax
-Address200:
   pop edx
   pop ecx
   pop ebx
   pop eax
-Address201:
-  Compute 5,edx,[exp]
-Address202:
-  cmp edx,0
-  jz Address191
-Address205:
-  mov eax,[Variable-1]
-Address206:
-  mov ebx,eax
-Address207:
+Address199:
+  Compute 2,ebx,[exp]
+Address200:
   mov ecx,ebx
-Address208:
-  mov edx,ecx
-Address209:
+Address201:
   push eax
   push ebx
   push ecx
   push edx
-Address210:
-  mov eax,0
-Address211:
-  mov [exp],eax
-Address212:
-  pop edx
-  pop ecx
-  pop ebx
-  pop eax
-Address213:
-  Compute 5,edx,[exp]
-Address214:
-  cmp edx,0
-  jz Address203
-Address215:
-  mov eax,8
-Address216:
-  call Out
-Address217:
-  jmp Address203
+Address202:
+  push eax
+  push ebx
+  push ecx
+  push edx
 Address203:
+  mov eax,1
+Address204:
+  mov ebx,eax
+Address205:
+  mov ecx,ebx
+Address206:
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address207:
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address208:
+  mov eax,1
+Address209:
+  mov ebx,eax
+Address210:
+  mov ecx,ebx
+Address211:
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address212:
+  mov eax,1
+Address213:
+  mov ebx,eax
+Address214:
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address215:
+  mov eax,1
+Address216:
+  mov ebx,eax
+Address217:
+  push eax
+  push ebx
+  push ecx
   push edx
 Address218:
-  jmp Address204
-Address204:
-  nop
-Address221:
-  pop eax
-Address222:
-  cmp eax,0
-  jz Address219
-Address223:
-  jmp Address220
+  mov eax,1
 Address219:
-  nop
-Address224:
-  mov eax,9
-Address225:
-  call Out
+  mov ebx,eax
 Address220:
-  jmp Address226
-Address226:
-  nop
-Address227:
-  jmp Address191
-Address191:
+  push eax
+  push ebx
+  push ecx
   push edx
-Address228:
-  jmp Address192
-Address192:
-  nop
-Address231:
+Address221:
+  mov eax,1
+Address222:
+  mov [exp],eax
+Address223:
+  pop edx
+  pop ecx
+  pop ebx
   pop eax
-Address232:
-  cmp eax,0
-  jz Address229
-Address233:
-  jmp Address230
+Address224:
+  Compute 3,ebx,[exp]
+Address225:
+  mov [exp],ebx
+Address226:
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address227:
+  Compute 2,ebx,[exp]
+Address228:
+  mov [exp],ebx
 Address229:
-  nop
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address230:
+  Compute 2,ebx,[exp]
+Address231:
+  mov ecx,ebx
+Address232:
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address233:
+  mov eax,1
+Address234:
+  mov ebx,eax
+Address235:
+  push eax
+  push ebx
+  push ecx
+  push edx
 Address236:
-  mov eax,[Variable-1]
+  mov eax,1
 Address237:
   mov ebx,eax
 Address238:
-  mov ecx,ebx
-Address239:
-  mov edx,ecx
-Address240:
   push eax
   push ebx
   push ecx
   push edx
-Address241:
-  mov eax,0
-Address242:
+Address239:
+  mov eax,1
+Address240:
   mov [exp],eax
-Address243:
+Address241:
   pop edx
   pop ecx
   pop ebx
   pop eax
+Address242:
+  Compute 3,ebx,[exp]
+Address243:
+  mov [exp],ebx
 Address244:
-  Compute 5,edx,[exp]
-Address245:
-  cmp edx,0
-  jz Address234
-Address246:
-  mov eax,10
-Address247:
-  call Out
-Address248:
-  jmp Address234
-Address234:
-  push edx
-Address249:
-  jmp Address235
-Address235:
-  nop
-Address252:
+  pop edx
+  pop ecx
+  pop ebx
   pop eax
-Address253:
-  cmp eax,0
-  jz Address250
-Address254:
-  jmp Address251
+Address245:
+  Compute 3,ebx,[exp]
+Address246:
+  mov [exp],ebx
+Address247:
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address248:
+  Compute 1,ecx,[exp]
+Address249:
+  mov [exp],ecx
 Address250:
-  nop
-Address255:
-  mov eax,11
-Address256:
-  call Out
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
 Address251:
-  jmp Address257
+  Compute 0,ecx,[exp]
+Address252:
+  mov [exp],ecx
+Address253:
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address254:
+  mov eax,[exp]
+Address255:
+  mov ebx,eax
+Address256:
+  push eax
+  push ebx
+  push ecx
+  push edx
 Address257:
-  nop
-Address230:
-  jmp Address258
+  push eax
+  push ebx
+  push ecx
+  push edx
 Address258:
-  nop
+  push eax
+  push ebx
+  push ecx
+  push edx
 Address259:
-  jmp Address179
-Address179:
+  push eax
+  push ebx
+  push ecx
   push edx
 Address260:
-  jmp Address180
-Address180:
-  nop
-Address263:
-  pop eax
-Address264:
-  cmp eax,0
-  jz Address261
-Address265:
-  jmp Address262
-Address261:
-  nop
-Address268:
-  mov eax,[Variable-1]
-Address269:
-  mov ebx,eax
-Address270:
-  mov ecx,ebx
-Address271:
-  mov edx,ecx
-Address272:
-  push eax
-  push ebx
-  push ecx
-  push edx
-Address273:
   mov eax,0
-Address274:
+Address261:
   mov [exp],eax
-Address275:
+Address262:
   pop edx
   pop ecx
   pop ebx
   pop eax
+Address263:
+  mov eax,[exp]
+Address264:
+  mov ebx,eax
+Address265:
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address266:
+  mov eax,1
+Address267:
+  mov [exp],eax
+Address268:
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address269:
+  Compute 2,ebx,[exp]
+Address270:
+  mov [exp],ebx
+Address271:
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address272:
+  mov eax,[exp]
+Address273:
+  mov ebx,eax
+Address274:
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address275:
+  push eax
+  push ebx
+  push ecx
+  push edx
 Address276:
-  Compute 5,edx,[exp]
+  mov eax,0
 Address277:
-  cmp edx,0
-  jz Address266
+  mov ebx,eax
+Address278:
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address279:
+  push eax
+  push ebx
+  push ecx
+  push edx
 Address280:
-  mov eax,[Variable-1]
+  mov eax,1
 Address281:
   mov ebx,eax
 Address282:
   mov ecx,ebx
 Address283:
-  mov edx,ecx
+  push eax
+  push ebx
+  push ecx
+  push edx
 Address284:
-  push eax
-  push ebx
-  push ecx
-  push edx
+  mov eax,1
 Address285:
-  mov eax,0
-Address286:
   mov [exp],eax
-Address287:
+Address286:
   pop edx
   pop ecx
   pop ebx
   pop eax
+Address287:
+  Compute 0,ecx,[exp]
 Address288:
-  Compute 5,edx,[exp]
+  mov [exp],ecx
 Address289:
-  cmp edx,0
-  jz Address278
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
 Address290:
-  mov eax,12
+  mov eax,[exp]
 Address291:
-  call Out
+  mov [exp],eax
 Address292:
-  jmp Address278
-Address278:
-  push edx
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
 Address293:
-  jmp Address279
-Address279:
-  nop
-Address296:
-  pop eax
-Address297:
-  cmp eax,0
-  jz Address294
-Address298:
-  jmp Address295
+  Compute 2,ebx,[exp]
 Address294:
-  nop
-Address299:
-  mov eax,13
-Address300:
-  call Out
+  mov [exp],ebx
 Address295:
-  jmp Address301
-Address301:
-  nop
-Address302:
-  jmp Address266
-Address266:
-  push edx
-Address303:
-  jmp Address267
-Address267:
-  nop
-Address306:
+  pop edx
+  pop ecx
+  pop ebx
   pop eax
-Address307:
-  cmp eax,0
-  jz Address304
-Address308:
-  jmp Address305
-Address304:
-  nop
-Address311:
-  mov eax,[Variable-1]
-Address312:
-  mov ebx,eax
-Address313:
+Address296:
+  mov eax,[exp]
+Address297:
+  mov [exp],eax
+Address298:
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address299:
+  Compute 2,ebx,[exp]
+Address300:
   mov ecx,ebx
-Address314:
-  mov edx,ecx
-Address315:
+Address301:
   push eax
   push ebx
   push ecx
   push edx
-Address316:
-  mov eax,0
-Address317:
+Address302:
+  mov eax,1
+Address303:
   mov [exp],eax
-Address318:
+Address304:
   pop edx
   pop ecx
   pop ebx
   pop eax
-Address319:
-  Compute 5,edx,[exp]
-Address320:
-  cmp edx,0
-  jz Address309
-Address321:
-  mov eax,14
-Address322:
-  call Out
-Address323:
-  jmp Address309
-Address309:
-  push edx
-Address324:
-  jmp Address310
-Address310:
-  nop
-Address327:
-  pop eax
-Address328:
-  cmp eax,0
-  jz Address325
-Address329:
-  jmp Address326
-Address325:
-  nop
-Address330:
-  mov eax,15
-Address331:
-  call Out
-Address326:
-  jmp Address332
-Address332:
-  nop
 Address305:
-  jmp Address333
+  Compute 0,ecx,[exp]
+Address306:
+  mov [exp],ecx
+Address307:
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address308:
+  mov eax,[exp]
+Address309:
+  mov [exp],eax
+Address310:
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address311:
+  Compute 2,ebx,[exp]
+Address312:
+  mov ecx,ebx
+Address313:
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address314:
+  mov eax,1
+Address315:
+  mov ebx,eax
+Address316:
+  mov ecx,ebx
+Address317:
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address318:
+  mov eax,1
+Address319:
+  mov [exp],eax
+Address320:
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address321:
+  Compute 1,ecx,[exp]
+Address322:
+  mov [exp],ecx
+Address323:
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address324:
+  Compute 0,ecx,[exp]
+Address325:
+  mov [exp],ecx
+Address326:
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address327:
+  Compute 0,ecx,[exp]
+Address328:
+  mov [exp],ecx
+Address329:
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address330:
+  mov eax,[exp]
+Address331:
+  mov ebx,eax
+Address332:
+  push eax
+  push ebx
+  push ecx
+  push edx
 Address333:
-  nop
-Address262:
-  jmp Address334
+  mov eax,1
 Address334:
-  nop
-Address175:
-  jmp Address335
+  mov ebx,eax
 Address335:
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address336:
+  mov eax,1
+Address337:
+  mov ebx,eax
+Address338:
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address339:
+  mov eax,1
+Address340:
+  mov ebx,eax
+Address341:
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address342:
+  mov eax,1
+Address343:
+  mov ebx,eax
+Address344:
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address345:
+  mov eax,1
+Address346:
+  mov [exp],eax
+Address347:
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address348:
+  Compute 3,ebx,[exp]
+Address349:
+  mov [exp],ebx
+Address350:
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address351:
+  Compute 3,ebx,[exp]
+Address352:
+  mov [exp],ebx
+Address353:
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address354:
+  Compute 3,ebx,[exp]
+Address355:
+  mov [exp],ebx
+Address356:
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address357:
+  Compute 3,ebx,[exp]
+Address358:
+  mov [exp],ebx
+Address359:
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address360:
+  Compute 2,ebx,[exp]
+Address361:
+  mov [exp],ebx
+Address362:
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address363:
+  Compute 1,ecx,[exp]
+Address364:
+  mov [exp],ecx
+Address365:
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address366:
+  Compute 0,ecx,[exp]
+Address367:
+  mov [Variable-1],ecx
+Address368:
+  mov eax,[Variable-1]
+Address369:
+  call Out
+Address370:
+  mov eax,[Variable-1]
+Address371:
+  mov [Variable-1],eax
+Address372:
+  mov eax,[Variable-1]
+Address373:
+  call Out
+Address374:
+  jmp Address377
+Address377:
+  mov eax,[Variable-1]
+Address378:
+  mov [Variable-1],eax
+Address379:
+  mov eax,[Variable-1]
+Address380:
+  mov ebx,eax
+Address381:
+  mov ecx,ebx
+Address382:
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address383:
+  mov eax,[Variable-1]
+Address384:
+  mov [exp],eax
+Address385:
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address386:
+  Compute 0,ecx,[exp]
+Address387:
+  mov [Variable-1],ecx
+Address388:
+  mov eax,[Variable-1]
+Address389:
+  mov [Variable-1],eax
+Address390:
+  mov eax,[Variable-1]
+Address391:
+  call Out
+Address392:
+  mov eax,[Variable1]
+Address393:
+  mov ebx,eax
+Address394:
+  mov ecx,ebx
+Address395:
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address396:
+  mov eax,1
+Address397:
+  mov [exp],eax
+Address398:
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address399:
+  Compute 1,ecx,[exp]
+Address400:
+  mov [Variable1],ecx
+Address401:
+  mov eax,[Variable1]
+Address402:
+  mov ebx,eax
+Address403:
+  mov ecx,ebx
+Address404:
+  mov edx,ecx
+Address405:
+  push eax
+  push ebx
+  push ecx
+  push edx
+Address406:
+  mov eax,0
+Address407:
+  mov [exp],eax
+Address408:
+  pop edx
+  pop ecx
+  pop ebx
+  pop eax
+Address409:
+  Compute 5,edx,[exp]
+Address375:
+  cmp edx,0
+  jnz Address410
+Address376:
+  jmp Address374
+Address410:
   nop
   OutKernel end,1,0
   mov eax,1

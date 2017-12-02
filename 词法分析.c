@@ -4,7 +4,7 @@
 #include <string.h>
 #include "符号表.h"
 
-enum Type {
+enum {
     KEYWORD, IDENTIFIER, NUMBER, NATIVE
 };
 int lineno = 1; //行号可以不必取整行之fgets，只要扫描到\n就自增1就是
