@@ -9,8 +9,8 @@ enum {
 };
 int lineno = 1; //行号可以不必取整行之fgets，只要扫描到\n就自增1就是
 int count = 0; //定位到一行中的某个单词
-int scanner; //字符扫描器
-int set[88];
+char scanner; //字符扫描器
+char set[88]; // int数组并不能通过char *强转作为字符串使用，这样打印的话只会打印第一个字符
 int location = 0; //字符搜集器
 int type = 0; //类型标志数，初始化为0是为了与其他标志规避
 char *keyword[] = {
@@ -29,7 +29,7 @@ int is_keyword(char str[]) //标识符匹配
 int go_on_0 = 1; //处理自动机状态结3和4接收到非字母非数字非空格者而掠过的bug
 int jump = 0; //自动机状态结选择器，本来是叫goto，但由于有goto关键字所以报错，而这种错往往比较迷惑人
 int ZERO(FILE *source, FILE *intermediate_code) {
-    if (go_on_0) { scanner = fgetc(source); }
+    if (go_on_0) { scanner = (char) fgetc(source); }
     go_on_0 = 1;
     if (scanner == ' ' || scanner == '\n') {
         if (scanner == '\n') {
@@ -57,7 +57,7 @@ int ZERO(FILE *source, FILE *intermediate_code) {
 }
 
 int ONE(FILE *source, FILE *intermediate_code) {
-    scanner = fgetc(source);
+    scanner = (char) fgetc(source);
     if (scanner == '\n') {
         lineno++;
         count = 0;
@@ -68,7 +68,7 @@ int ONE(FILE *source, FILE *intermediate_code) {
 }
 
 int TWO(FILE *source, FILE *intermediate_code) {
-    scanner = fgetc(source);
+    scanner = (char) fgetc(source);
     if (scanner == '=') {
         jump = 5;
         set[location++] = scanner;
@@ -77,7 +77,7 @@ int TWO(FILE *source, FILE *intermediate_code) {
 }
 
 int THREE(FILE *source, FILE *intermediate_code) {
-    scanner = fgetc(source);
+    scanner = (char) fgetc(source);
     if (isalpha(scanner)) {
         if (location < 88) {
             jump = 3;
@@ -94,7 +94,7 @@ int THREE(FILE *source, FILE *intermediate_code) {
 }
 
 int FOUR(FILE *source, FILE *intermediate_code) {
-    scanner = fgetc(source);
+    scanner = (char) fgetc(source);
     if (isdigit(scanner)) {
         if (location < 88) {
             jump = 4;
@@ -115,12 +115,12 @@ int FIVE(FILE *source, FILE *intermediate_code) {
     count++; //生成一个单词后当行当前单词序号自增1
     //jump=location=0;
     location = 0;
-    if (type == 2) { fprintf(intermediate_code, "(%d,%s)", NUMBER, (char *) set); }
-    else if (is_keyword((char *) set)) { fprintf(intermediate_code, "(%d,%s)", KEYWORD, (char *) set); }
+    if (type == 2) { fprintf(intermediate_code, "(%d,%s)", NUMBER, set); }
+    else if (is_keyword(set)) { fprintf(intermediate_code, "(%d,%s)", KEYWORD, set); }
     else if (type == 1) {
-        fprintf(intermediate_code, "(%d,%s)", IDENTIFIER, (char *) set);
-        st_insert((char *) set);
-    } else { fprintf(intermediate_code, "(%d,%s)", NATIVE, (char *) set); }
+        fprintf(intermediate_code, "(%d,%s)", IDENTIFIER, set);
+        st_insert(set);
+    } else { fprintf(intermediate_code, "(%d,%s)", NATIVE, set); }
     //type=0;
     //int i;
     //for(i=0;i<88;i++)set[i]=' ';
@@ -135,5 +135,5 @@ char *next_word(FILE *source, FILE *intermediate_code) {
         state[jump](source, intermediate_code);
     } while (jump != 5);
     state[jump](source, intermediate_code); //简单处理，当然可以加设标志位压缩之统一代码
-    return (char *) set;
+    return set;
 }

@@ -56,17 +56,16 @@ section .data
   _z db 09h ;实际还可以把这两个存入z，之之所以times后面不能再单独定义数据也是因为没必要
   end db 0ah ;回车键
   exp dd 0 ;暂存exp的值
-  Variable1 dd 0
   Variable0 dd 0
-  Variable4 dd 0
-  Variable3 dd 0
+  Variable1 dd 0
   Variable2 dd 0
+  Variable3 dd 0
 section .text
 global _start
 _start:
 Address0:
   call In
-  mov [Variable1],eax
+  mov [Variable0],eax
 Address1:
   push eax
   push ebx
@@ -1202,27 +1201,27 @@ Address365:
 Address366:
   Compute 0,ecx,[exp]
 Address367:
-  mov [Variable-1],ecx
+  mov [Variable1],ecx
 Address368:
-  mov eax,[Variable-1]
+  mov eax,[Variable1]
 Address369:
   call Out
 Address370:
-  mov eax,[Variable-1]
+  mov eax,[Variable1]
 Address371:
-  mov [Variable-1],eax
+  mov [Variable2],eax
 Address372:
-  mov eax,[Variable-1]
+  mov eax,[Variable2]
 Address373:
   call Out
 Address374:
   jmp Address377
 Address377:
-  mov eax,[Variable-1]
+  mov eax,[Variable2]
 Address378:
-  mov [Variable-1],eax
+  mov [Variable3],eax
 Address379:
-  mov eax,[Variable-1]
+  mov eax,[Variable2]
 Address380:
   mov ebx,eax
 Address381:
@@ -1233,7 +1232,7 @@ Address382:
   push ecx
   push edx
 Address383:
-  mov eax,[Variable-1]
+  mov eax,[Variable1]
 Address384:
   mov [exp],eax
 Address385:
@@ -1244,17 +1243,17 @@ Address385:
 Address386:
   Compute 0,ecx,[exp]
 Address387:
-  mov [Variable-1],ecx
+  mov [Variable2],ecx
 Address388:
-  mov eax,[Variable-1]
+  mov eax,[Variable3]
 Address389:
-  mov [Variable-1],eax
+  mov [Variable1],eax
 Address390:
-  mov eax,[Variable-1]
+  mov eax,[Variable2]
 Address391:
   call Out
 Address392:
-  mov eax,[Variable1]
+  mov eax,[Variable0]
 Address393:
   mov ebx,eax
 Address394:
@@ -1276,9 +1275,9 @@ Address398:
 Address399:
   Compute 1,ecx,[exp]
 Address400:
-  mov [Variable1],ecx
+  mov [Variable0],ecx
 Address401:
-  mov eax,[Variable1]
+  mov eax,[Variable0]
 Address402:
   mov ebx,eax
 Address403:
